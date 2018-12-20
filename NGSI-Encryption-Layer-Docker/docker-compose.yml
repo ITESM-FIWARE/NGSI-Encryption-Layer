@@ -1,0 +1,14 @@
+mongodb:
+  image: mongo
+  container_name: ngsi_mongo
+  volumes:
+    - ./data:/data/db
+
+ngsi_encryption_layer:
+  image: ngsi/encryption_layer
+  container_name: ngsi_api
+  ports:
+    - "3800:3800"
+  links:
+    - mongodb:mongodb
+  command: npm start
