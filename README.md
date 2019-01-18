@@ -1,1 +1,1 @@
-# NGSI-Encryption-Layer
+# NGSI Encryption Layer Application
