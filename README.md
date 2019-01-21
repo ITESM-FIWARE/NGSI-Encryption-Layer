@@ -1,6 +1,6 @@
 # NGSI Encryption Layer Application
 
-This document describes the encryption service App developed at ITESM as a web application for encrypting and decrypting [FIWARE data models](https://www.fiware.org/developers/data-models/).
+This document describes the encryption service App developed at ITESM as a web application for encrypting, decrypting, and anonymizing [FIWARE data models](https://www.fiware.org/developers/data-models/).
 
 [FIWARE](https://www.fiware.org/) is a curated framework of open source platform components to accelerate the development of Smart solutions. The [FIWARE platform](https://www.fiware.org/developers/catalogue/) provides a rather simple yet powerful set of APIs (Application Programming Interfaces) that ease the development of Smart Applications in multiple vertical sectors. 
 
@@ -13,13 +13,25 @@ The Web application allows the encryption, decryption, and anonimization of [FIW
 ## Prerequisites
 The encryption service can be installed on any Operative System.
 
-The service requires an active Gmail account. The use of other email accounts will cause the malfunction of the service.
+The following software must be previously installed in the server which will hold the encryption application.
+1. [Docker](https://www.docker.com/get-started)
+1. [Docker-compose](https://docs.docker.com/compose/install/)
+
+The application requires an active Gmail account. The use of other email accounts will cause the malfunction of the service.
 
 ## Installation and Configuration
-First, download or clone the repository to a local directory.
+1. Clone or download this repository
+1. Open a terminal in the location of the docker-compose.yml file
+1. Start the docker compose with ```sudo docker-compose up``` or with ```sudo docker-compose up -d```. The first command shows the status of the container in the foreground while the second command put the process in the background
+1. Check docker containers status: ```docker ps```
+1. Two containers are required by the application, one for the ngsi_api and one for mongoDB. To verify that the containers are up and running: ```docker logs CONTAINER_ID``` 
+1. If the container shows an error, restart the container: ```sudo docker-compose restart```
+1. Stop the application: ```sudo docker-compose down```
 
 ## How to use
-Access the service via the [NGSI Encryption Layer Application official website](148.241.3.246:3900)
+Access the service via the [NGSI Encryption Layer Application official website](http://148.241.3.246:3900/) or http://127.0.0.1:3800 / http://localhost:3800 if the application was installed locally
+
+The correct functionality of the application is achieved by using Firefox, Chrome, and Opera web browsers. The application is not optimized for mobile devices.
 
 ## A walkthrough
 ### Sign up into the App
@@ -31,6 +43,7 @@ Access the service via the [NGSI Encryption Layer Application official website](
 ### Login process
 1. In the main page of the application, fill up the "Email" and "Password" fields with the corresponding credentials
 1. Click the "Login" button at the left-bottom side of the web page
+1. A web page with access to the user profile, as well as to the encryption, decryption, and anonymization algorithms is displayed
 
 ### Update the user's profile
 1. Follow up the login process
@@ -87,9 +100,8 @@ Access the service via the [NGSI Encryption Layer Application official website](
 1. Click the "View of the original JSON" to visualize the uploaded JSON file
 
 ### Visualize the App documentation
-1. Follow up the login process
-1. In the main page, click the "Documentation" button at the middle-top side of the web page
-1. The documentation is displayed at the [official web site of the application](https://github.com/ITESM-FIWARE/NGSI-Encryption-Layer-App/edit/master/README.md)
+1. In the main page, click the "Documentation" button at the top side of the web page
+1. The documentation is displayed at the [official web site of the application](https://github.com/ITESM-FIWARE/NGSI-Encryption-Layer-App/blob/master/README.md)
 
 ### Log out process
 1. Follow up the login process
