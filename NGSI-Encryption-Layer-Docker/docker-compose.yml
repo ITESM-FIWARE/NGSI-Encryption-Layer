@@ -5,10 +5,10 @@ mongodb:
     - ./data:/data/db
 
 ngsi_encryption_layer:
-  image: ngsi/encryption_layer
+  image: smartsdk/encryption-service-app
   container_name: ngsi_api
   ports:
-    - "3800:3800"
+    - "3900:3900"
   links:
     - mongodb:mongodb
   command: npm start
